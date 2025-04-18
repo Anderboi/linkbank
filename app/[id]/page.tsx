@@ -22,7 +22,7 @@ const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
       <br/>
       <article>
         <ol className="flex flex-col gap-4">
-          <LinkButton name="Техническое задание" />
+          <LinkButton   name="Техническое задание" />
           <LinkButton name="Проект PDF" />
           <Link
             className="border p-4 rounded-lg"

@@ -1,16 +1,27 @@
 "use client";
 
+import { createClient } from "@/app/utils/supabase/client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { EllipsisVertical } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface LinkButtonType {
-  link?: string;
+  id?: number;
+  url?: string;
+  user_id?: string;
   name: string;
 }
-const LinkButton: React.FC<LinkButtonType> = ({ link, name }) => {
+const LinkButton: React.FC<LinkButtonType> = ({ name }) => {
   const [url, setUrl] = useState("");
   const [savedUrl, setSavedUrl] = useState("");
   const [isEditing, setIsEditing] = useState(true);
+
+  const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+
+  const supabase = createClient();
 
   const handleSave = () => {
     if (url.trim()) {
@@ -24,43 +35,56 @@ const LinkButton: React.FC<LinkButtonType> = ({ link, name }) => {
   };
 
   return (
-    <div className="border border-gray-700 bg-gray-800 p-4 rounded-2xl flex flex-col">
+    <div
+      className={`flex items-center border border-zinc-300 //bg-gray-800 /p-4 rounded-2xl ${
+        savedUrl && "bg-zinc-200 border-none "
+      }`}
+    >
       {isEditing ? (
         <>
-          <div>{name}</div>
-          <div className="flex border border-gray-400 rounded-md">
-            <input
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="Введите URL (example.com)"
-              className="px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              onClick={handleSave}
-              disabled={!url.trim()}
-              className={`px-4 py-2 rounded-r-sm text-white ${
-                !url.trim()
-                  ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600"
-              }`}
-            >
-              Сохранить
-            </button>
+          <div className="p-4 w-full">
+            <div>{name}</div>
+            <div className="flex gap-4 //border border-gray-400 rounded-md">
+              <Input
+                type="text"
+                value={url}
+                className="w-full bg-white shadow-none"
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="Введите URL (example.com)"
+                // className="px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <Button
+                onClick={handleSave}
+                disabled={!url.trim()}
+                className={`px-4 py-2 rounded-r-sm text-white ${
+                  !url.trim()
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "//bg-blue-500 //hover:bg-blue-600"
+                }`}
+              >
+                Сохранить
+              </Button>
+            </div>
           </div>
         </>
       ) : (
         <>
-          <Link href={savedUrl} rel="noopener noreferrer" target="_blank">
+          <Link
+            href={savedUrl}
+            className="flex p-4 justify-between items-center w-full"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             {name}
           </Link>
-
-          <button
+          <Button
+            size={"icon"}
+            variant={"ghost"}
             onClick={handleEdit}
-            className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800"
+            className="mr-4 text-gray-600 hover:text-gray-800"
           >
-            Изменить
-          </button>
+            <EllipsisVertical />
+          </Button>
         </>
       )}
     </div>
