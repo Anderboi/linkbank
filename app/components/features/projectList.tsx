@@ -19,7 +19,7 @@ const ProjectList = async () => {
   const { data: projects, error } = await supabase.from("projects").select("*");
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 w-full">
       {projects &&
         projects.map((project, index) => (
           <Link key={index} href={`${project.id}?name=${project.name}`}>

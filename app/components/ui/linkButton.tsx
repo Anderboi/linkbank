@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/app/utils/supabase/client";
 import { EllipsisVertical } from "lucide-react";
@@ -12,8 +12,13 @@ interface LinkButtonType {
   baseurl?: string;
   user_id?: string;
   name: string;
+  project_id: number;
 }
-const LinkButton: React.FC<LinkButtonType> = ({ name, baseurl }) => {
+const LinkButton: React.FC<LinkButtonType> = ({
+  name,
+  baseurl,
+  project_id,
+}) => {
   const [url, setUrl] = useState("");
   const [savedUrl, setSavedUrl] = useState(baseurl);
   const [isEditing, setIsEditing] = useState(true);
@@ -23,11 +28,20 @@ const LinkButton: React.FC<LinkButtonType> = ({ name, baseurl }) => {
 
   const supabase = createClient();
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (url.trim()) {
+
       setSavedUrl(url.startsWith("http") ? url : `https://${url}`);
-      setIsEditing(false);
+      console.log(url, project_id);
+
+      const { error } = await supabase
+        .from("links")
+        .insert({ name, link: url, project_id: project_id });
+
+        console.log(error);
     }
+
+    setIsEditing(false);
   };
 
   const handleEdit = () => {

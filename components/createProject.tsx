@@ -27,7 +27,7 @@ const CreateProject = () => {
   };
 
   return (
-    <form className="flex gap-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex gap-4 w-full" onSubmit={handleSubmit(onSubmit)}>
       <Input
         {...register("projectName")}
         placeholder="Введите имя проекта"
