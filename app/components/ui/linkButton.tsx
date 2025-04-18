@@ -1,8 +1,8 @@
 "use client";
 
-import { createClient } from "@/app/utils/supabase/client";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+import { createClient } from "@/app/utils/supabase/client";
 import { EllipsisVertical } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ const LinkButton: React.FC<LinkButtonType> = ({ name, baseurl }) => {
                 disabled={!url.trim()}
                 className={`px-4 py-2 rounded-r-sm text-white ${
                   !url.trim()
-                    ? "bg-gray-500 cursor-not-allowed"
+                    ? "bg-zinc-500 cursor-not-allowed"
                     : "//bg-blue-500 //hover:bg-blue-600"
                 }`}
               >

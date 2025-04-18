@@ -3,7 +3,7 @@
 import React from "react";
 import { Button } from "./button";
 import { ChevronLeft } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,6 +15,9 @@ import {
 
 const Header = ({ link }: { link: string }) => {
   const route = useRouter();
+  const searchParams = useSearchParams();
+
+  const name = searchParams.get('name')
 
   return (
     <nav className="flex items-center p-4 gap-8">
@@ -24,11 +27,11 @@ const Header = ({ link }: { link: string }) => {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink href="/">Проекты</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={link}>{link}</BreadcrumbLink>
+            <BreadcrumbLink href={link}>{name}</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

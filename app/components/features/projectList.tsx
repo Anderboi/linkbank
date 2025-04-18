@@ -1,31 +1,28 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 
 const projects = [
   {
-    name: "first",
-    link: "/first",
+    name: "Путилково",
+    link: "/first?name=Путилково",
   },
   {
-    name: "second",
-    link: "/second",
+    name: "Раздоры",
+    link: "/second?name=Раздоры",
   },
 ];
 
 const ProjectList = () => {
   return (
-    <div className="w-full">
-      <h1>Проекты</h1>
-      <section className="flex flex-col gap-2">
-        {projects.map((project, index) => (
-          <Link key={index} href={project.link}>
-            <div className="p-4 border border-border rounded-lg">
-              <h3>{project.name}</h3>
-            </div>
-          </Link>
-        ))}
-      </section>
-    </div>
+    <section className="flex flex-col gap-4">
+      {projects.map((project, index) => (
+        <Link key={index} href={project.link}>
+          <div className="p-4 border border-border rounded-lg bg-zinc-200">
+            <h2 className="">{project.name}</h2>
+          </div>
+        </Link>
+      ))}
+    </section>
   );
 };
 
