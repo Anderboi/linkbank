@@ -2,6 +2,7 @@ import Image from "next/image";
 import ProjectList from "./components/features/projectList";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import CreateProject from "@/components/createProject";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
             <Plus />
           </Button>
         </div>
+        <CreateProject/>
         <ProjectList />
         {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
