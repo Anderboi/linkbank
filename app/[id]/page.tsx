@@ -1,0 +1,64 @@
+import Link from "next/link";
+import React from "react";
+import LinkButton from "../components/ui/linkButton";
+
+const links = {
+  brief: {
+    link: "https://disk.yandex.ru/d/5sU-hJmjPnPtDA",
+  },
+
+  pdf: { link: "" },
+};
+export const revalidate = 0;
+const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
+
+  return (
+    <section className="p-4 my-auto h-full">
+      <h1>
+        Проект <br />
+        {id}
+      </h1>
+      <br/>
+      <article>
+        <ol className="flex flex-col gap-4">
+          <LinkButton name="Техническое задание" />
+          <LinkButton name="Проект PDF" />
+          <Link
+            className="border p-4 rounded-lg"
+            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
+          >
+            Информация по объекту
+          </Link>
+          <Link
+            className="border p-4 rounded-lg"
+            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
+          >
+            Модель SketchUp
+          </Link>
+          <Link
+            className="border p-4 rounded-lg"
+            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
+          >
+            Комплектация
+          </Link>
+          <Link
+            className="border p-4 rounded-lg"
+            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
+          >
+            График поставок
+          </Link>
+          <br />
+          <Link
+            className="border p-4 rounded-lg"
+            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
+          >
+            Авторский контроль
+          </Link>
+        </ol>
+      </article>
+    </section>
+  );
+};
+
+export default ProjectPage;
