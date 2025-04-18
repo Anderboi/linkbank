@@ -9,13 +9,13 @@ import { Button } from "@/components/ui/button";
 
 interface LinkButtonType {
   id?: number;
-  url?: string;
+  baseurl?: string;
   user_id?: string;
   name: string;
 }
-const LinkButton: React.FC<LinkButtonType> = ({ name }) => {
+const LinkButton: React.FC<LinkButtonType> = ({ name, baseurl }) => {
   const [url, setUrl] = useState("");
-  const [savedUrl, setSavedUrl] = useState("");
+  const [savedUrl, setSavedUrl] = useState(baseurl);
   const [isEditing, setIsEditing] = useState(true);
 
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ const LinkButton: React.FC<LinkButtonType> = ({ name }) => {
         savedUrl && "bg-zinc-200 border-none "
       }`}
     >
-      {isEditing ? (
+      {!baseurl && isEditing ? (
         <>
           <div className="p-4 w-full">
             <div>{name}</div>
@@ -70,7 +70,7 @@ const LinkButton: React.FC<LinkButtonType> = ({ name }) => {
       ) : (
         <>
           <Link
-            href={savedUrl}
+            href={savedUrl || ""}
             className="flex p-4 justify-between items-center w-full"
             rel="noopener noreferrer"
             target="_blank"

@@ -19,42 +19,19 @@ const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         Проект <br />
         {id}
       </h1>
-      <br/>
+      <br />
       <article>
         <ol className="flex flex-col gap-4">
-          <LinkButton   name="Техническое задание" />
+          <LinkButton
+            name="Техническое задание"
+            baseurl="https://disk.yandex.ru/d/5sU-hJmjPnPtDA"
+          />
           <LinkButton name="Проект PDF" />
-          <Link
-            className="border p-4 rounded-lg"
-            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
-          >
-            Информация по объекту
-          </Link>
-          <Link
-            className="border p-4 rounded-lg"
-            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
-          >
-            Модель SketchUp
-          </Link>
-          <Link
-            className="border p-4 rounded-lg"
-            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
-          >
-            Комплектация
-          </Link>
-          <Link
-            className="border p-4 rounded-lg"
-            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
-          >
-            График поставок
-          </Link>
-          <br />
-          <Link
-            className="border p-4 rounded-lg"
-            href={"https://disk.yandex.ru/d/5sU-hJmjPnPtDA"}
-          >
-            Авторский контроль
-          </Link>
+          <LinkButton name="Информация по объекту" />
+          <LinkButton name="Модель SketchUp" />
+          <LinkButton name="Комплектация" />
+          <LinkButton name="График поставок" />
+          <LinkButton name="Авторский контроль" />
         </ol>
       </article>
     </section>
