@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
 import CreateProject from "@/components/CreateProject";
 import ProjectList from "@/components/ProjectList";
+
 
 export default function Home() {
   return (
@@ -10,9 +9,11 @@ export default function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 sm:items-start w-full sm:w-[640px]">
         <div className="flex w-full justify-between items-center">
           <h1>Проекты</h1>
-          <Button variant={"outline"} size={"icon"}>
-            <Plus />
-          </Button>
+          <CreateProject/>
+
+          {/* <Button variant={"outline"} size={"default"}>
+            <Plus /> Создать
+          </Button> */}
         </div>
 
         <ProjectList />
