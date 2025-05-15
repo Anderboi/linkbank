@@ -1,5 +1,5 @@
 import React from "react";
-import LinkButton from "../components/ui/linkButton";
+import LinkButton from "../../components/ui/linkButton";
 import { createClient } from "../utils/supabase/client";
 
 // Базовые ссылки по умолчанию
