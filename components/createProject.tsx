@@ -11,7 +11,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -57,18 +56,10 @@ const CreateProject = () => {
             {...register("projectName")}
             placeholder="Введите имя проекта"
           ></Input>
-
           <Button type="submit" size={"default"}>
-            {/* <Plus /> */} Создать
+            Создать
           </Button>
         </form>
-        {/* <form className="flex gap-2">
-                <Input />
-                <Button variant={"default"} size={"default"}>
-                  Создать
-                </Button>
-              </form> */}
-        {/* <DialogFooter></DialogFooter> */}
       </DialogContent>
     </Dialog>
   );

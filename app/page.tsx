@@ -2,20 +2,14 @@ import Image from "next/image";
 import CreateProject from "@/components/CreateProject";
 import ProjectList from "@/components/ProjectList";
 
-
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 sm:items-start w-full sm:w-[640px]">
         <div className="flex w-full justify-between items-center">
           <h1>Проекты</h1>
-          <CreateProject/>
-
-          {/* <Button variant={"outline"} size={"default"}>
-            <Plus /> Создать
-          </Button> */}
+          <CreateProject />
         </div>
-
         <ProjectList />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
