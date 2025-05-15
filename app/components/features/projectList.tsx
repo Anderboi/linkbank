@@ -2,17 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { createClient } from "@/app/utils/supabase/client";
 
-// const projects = [
-//   {
-//     name: "Путилково",
-//     link: "/first?name=Путилково",
-//   },
-//   {
-//     name: "Раздоры",
-//     link: "/second?name=Раздоры",
-//   },
-// ];
-
 const ProjectList = async () => {
   const supabase = createClient();
 

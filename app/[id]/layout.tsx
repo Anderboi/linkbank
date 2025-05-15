@@ -2,13 +2,16 @@ import React from "react";
 import Header from "@/components/ui/header";
 import ProjectTitle from "@/components/ui/projectTitle";
 
+interface LayoutProps {
+  children: React.ReactNode;
+  params: { id: string };
+}
+
 const Layout = async ({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: { id: string };
-}>) => {
+}: LayoutProps) => {
+  
   const { id } = await params;
   return (
     <>
