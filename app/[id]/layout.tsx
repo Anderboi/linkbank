@@ -2,16 +2,14 @@ import React from "react";
 import Header from "@/components/ui/header";
 import ProjectTitle from "@/components/ui/projectTitle";
 
-interface LayoutProps {
-  children: React.ReactNode;
-  params: { id: string };
-}
+type Params = Promise<{ id: string }>;
 
-const Layout = async ({
-  children,
-  params,
-}: LayoutProps) => {
-  
+type LayoutProps = {
+  children: React.ReactNode;
+  params: Params;
+};
+
+const Layout = async ({ children, params }: LayoutProps) => {
   const { id } = await params;
   return (
     <>
