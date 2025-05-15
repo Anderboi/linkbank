@@ -1,6 +1,6 @@
 import Image from "next/image";
-import CreateProject from "@/components/CreateProject";
 import ProjectList from "@/components/ProjectList";
+import CreateProject from "@/components/createProject";
 
 export default function Home() {
   return (
